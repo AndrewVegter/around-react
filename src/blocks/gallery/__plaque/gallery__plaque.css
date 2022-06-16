@@ -1,0 +1,11 @@
+.gallery__plaque {
+  margin: 0;
+  padding: 25px 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}

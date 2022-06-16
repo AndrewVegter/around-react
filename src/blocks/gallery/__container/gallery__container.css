@@ -1,0 +1,22 @@
+.gallery__container {
+  max-width: 880px;
+  min-width: 282px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 20px 17px;
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+}
+
+@media screen and (max-width: 879px) {
+  .gallery__container {
+    width: 581px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .gallery__container {
+    width: 282px;
+  }
+}
