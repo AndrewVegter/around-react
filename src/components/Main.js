@@ -1,7 +1,7 @@
 import React from 'react';
 import edit from '../images/edit.svg';
 import add from '../images/add.svg';
-import { projectApi } from '../utils/Api.js';
+import { projectApi } from '../utils/api.js';
 import Card from './Card.js';
 
 export default function Main(props) {
