@@ -14,7 +14,7 @@ export default function PopupWithForm(props) {
                 <form name={props.name} className="popup__form" onSubmit={props.handleSubmit} noValidate>
                     <h2 className={`popup__title ${props.isFailsafe ? "popup__title_margin_low" : ""}`}>{props.title}</h2>
                     {props.children}
-                    <button type="submit" name="Save" className="popup__button">{`${props.isFailsafe ? "Yes" : "Save"}`}</button>
+                    <button type="submit" name="Save" className="popup__button">{props.isFailsafe ? "Yes" : "Save"}</button>
                 </form>
             </div>
         </div>

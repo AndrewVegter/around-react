@@ -63,9 +63,9 @@ export default function Main(props) {
             </section>
             <section className="gallery">
                 <ul className="gallery__container">
-                    {cards.map((cardItem, index) => {
+                    {cards.map((cardItem) => {
                         return(
-                            <Card key={index} card={cardItem} onCardClick={props.onCardClick}/>
+                            <Card key={cardItem._id} card={cardItem} onCardClick={props.onCardClick}/>
                         )
                     })}
                 </ul>
