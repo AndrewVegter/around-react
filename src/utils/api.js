@@ -83,7 +83,7 @@ class Api {
     }
 }
 
-//adding random comment so I can commit this and hopefully github will stop randomly capitalizing this file and preventing me from submitting the project//
-
-export const projectApi = new Api("https://around.nomoreparties.co/v1/group-12", 
+const projectApi = new Api("https://around.nomoreparties.co/v1/group-12", 
 { authorization: "1ef576b8-6d38-4f6c-aed4-fbb58187f608", "Content-Type": "application/json" });
+
+export default projectApi;
