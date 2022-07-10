@@ -18,7 +18,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
-  //Sorry, I thought that since I have a function in api.js that checks every response that a catch block here might be redundant//
+  /*Sorry, I originally had a catch block, but thought that since I have a function in api.js that checks every response that a catch block 
+  here might be redundant -- it's been a few months since I learned about promises, bit rusty :D*/
   useEffect(() => {
     Promise.all([projectApi.getUserInfo(), projectApi.getInitialCards()])
         .then(([user, cards]) => {
