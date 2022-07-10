@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PopupWithForm from './PopupWithForm.js';
 
 export default function AddPlacePopup({isOpen, onClose, onAddPlace}) {
-    const [name, setName] = React.useState('');
-    const [link, setLink] = React.useState('');
+    const [name, setName] = useState('');
+    const [link, setLink] = useState('');
 
-    function handleChange(evt) {
-        if (evt.target.name === "name") {
-            setName(evt.target.value);
-        } else {
-            setLink(evt.target.value);
-        }
+    function handleNameChange(evt) {
+      setName(evt.target.value);
+    }
+
+    function handleLinkChange(evt) {
+      setLink(evt.target.value);
     }
 
     function handleSubmit(evt) {
@@ -28,7 +28,7 @@ export default function AddPlacePopup({isOpen, onClose, onAddPlace}) {
         <label className="popup__field">
           <input
             type="text"
-            onChange={handleChange}
+            onChange={handleNameChange}
             className="popup__input"
             placeholder="Title"
             name="name"
@@ -36,18 +36,18 @@ export default function AddPlacePopup({isOpen, onClose, onAddPlace}) {
             minLength="1"
             maxLength="30"
           />
-          <span className="popup__error popup__error_type_title"></span>
+          <span className="popup__error popup__error_type_title" />
         </label>
         <label className="popup__field">
           <input
             type="url"
-            onChange={handleChange}
+            onChange={handleLinkChange}
             name="link"
             className="popup__input"
             placeholder="Image URL"
             required
           />
-          <span className="popup__error popup__error_type_link"></span>
+          <span className="popup__error popup__error_type_link" />
         </label>
       </PopupWithForm>
     )

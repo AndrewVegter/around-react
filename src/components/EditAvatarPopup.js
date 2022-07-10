@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PopupWithForm from './PopupWithForm.js';
 
 export default function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
-    const avatarRef = React.useRef();
+    const avatarRef = useRef();
 
     function handleSubmit(evt) {
         evt.preventDefault();
@@ -24,7 +24,7 @@ export default function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
             placeholder="Avatar URL"
             required
           />
-          <span className="popup__error popup__error_type_avatar"></span>
+          <span className="popup__error popup__error_type_avatar" />
         </label>
       </PopupWithForm>
     )

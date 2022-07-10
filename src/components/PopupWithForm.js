@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function PopupWithForm(props) {
 
     return (
@@ -10,7 +8,7 @@ export default function PopupWithForm(props) {
                 type="button"
                 name="exit"
                 className="popup__exit-button"
-                ></button>
+                />
                 <form name={props.name} onSubmit={props.onSubmit} className="popup__form" noValidate>
                     <h2 className="popup__title">{props.title}</h2>
                     {props.children}

@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PopupWithForm from './PopupWithForm.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
-//It's giving me some kind of warning about this file making a controlled component uncontrolled, but I cannot figure out why//
+//Thank you!//
 
 export default function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
-    const currentUser = React.useContext(CurrentUserContext);
-    const [name, setName] = React.useState('');
-    const [description, setDescription] = React.useState('');
-    React.useEffect(() => {
-        setName(currentUser.name);
-        setDescription(currentUser.about);
+    const currentUser = useContext(CurrentUserContext);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    useEffect(() => {
+        setName(currentUser.name || '');
+        setDescription(currentUser.about || '');
     }, [currentUser])
 
-    function handleChange(evt) {
-        if (evt.target.name === "name") {
-            setName(evt.target.value);
-        } else {
-            setDescription(evt.target.value);
-        }
+    function handleNameChange(evt) {
+      setName(evt.target.value);
+    }
+
+    function handleDescriptionChange(evt) {
+      setDescription(evt.target.value);
     }
 
     function handleSubmit(evt) {
@@ -37,28 +37,28 @@ export default function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
               type="text"
               name="name"
               value={name}
-              onChange={handleChange}
+              onChange={handleNameChange}
               className="popup__input"
               placeholder="Name"
               required
               minLength="2"
               maxLength="40"
             />
-            <span className="popup__error popup__error_type_name"></span>
+            <span className="popup__error popup__error_type_name" />
           </label>
           <label className="popup__field">
             <input
               type="text"
               name="about"
               value={description}
-              onChange={handleChange}
+              onChange={handleDescriptionChange}
               className="popup__input"
               placeholder="About me"
               required
               minLength="2"
               maxLength="200"
             />
-            <span className="popup__error popup__error_type_job"></span>
+            <span className="popup__error popup__error_type_job" />
           </label>
         </PopupWithForm>
     )

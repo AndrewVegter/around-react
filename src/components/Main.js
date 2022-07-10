@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import edit from '../images/edit.svg';
 import add from '../images/add.svg';
 import Card from './Card.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 export default function Main(props) {
-    const currentUser = React.useContext(CurrentUserContext);
+    const currentUser = useContext(CurrentUserContext);
 
     return (
         <main className="main">
@@ -46,11 +46,11 @@ export default function Main(props) {
             </section>
             <section className="gallery">
                 <ul className="gallery__container">
-                    {props.cards.map((cardItem) => {
-                        return(
+                    {props.cards.map((cardItem) => 
+                        (
                             <Card key={cardItem._id} card={cardItem} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete}/>
                         )
-                    })}
+                    )}
                 </ul>
             </section>
         </main>
