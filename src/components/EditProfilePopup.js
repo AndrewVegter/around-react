@@ -2,6 +2,8 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
+//It's giving me some kind of warning about this file making a controlled component uncontrolled, but I cannot figure out why//
+
 export default function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
     const currentUser = React.useContext(CurrentUserContext);
     const [name, setName] = React.useState('');
