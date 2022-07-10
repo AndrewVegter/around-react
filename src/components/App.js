@@ -18,8 +18,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
-  /*Sorry, I originally had a catch block, but thought that since I have a function in api.js that checks every response that a catch block 
-  here might be redundant -- it's been a few months since I learned about promises, bit rusty :D*/
   useEffect(() => {
     Promise.all([projectApi.getUserInfo(), projectApi.getInitialCards()])
         .then(([user, cards]) => {
@@ -57,30 +55,30 @@ function App() {
   }
 
   function handleUpdateUser(data) {
-    projectApi.updateUserData(data).then((user) => setCurrentUser(user));
+    projectApi.updateUserData(data).then((user) => setCurrentUser(user)).catch(err => console.log(err));
   }
 
   function handleUpdateAvatar(data) {
-    projectApi.updateUserAvatar(data).then((user) => setCurrentUser(user));
+    projectApi.updateUserAvatar(data).then((user) => setCurrentUser(user)).catch(err => console.log(err));
   }
 
   function handleAddPlace(data) {
     projectApi.addNewCard(data).then((newCard) => {
       setCards([newCard, ...cards]);
-    })
+    }).catch(err => console.log(err));
   }
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(user => user._id === currentUser._id);
     projectApi.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
         setCards((state) => state.map((currentCard) => currentCard._id === card._id ? newCard : currentCard));
-    });
+    }).catch(err => console.log(err));
   }
 
   function handleCardDelete(card) {
     projectApi.deleteCard(card._id).then(() => {
         setCards((state) => state.filter((currentCard) => currentCard._id !== card._id));
-    })
+    }).catch(err => console.log(err))
   }
 
   return (
