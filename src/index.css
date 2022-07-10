@@ -24,6 +24,7 @@
 @import url("./blocks/gallery/__button/gallery__button.css");
 @import url("./blocks/gallery/__button/_active/gallery__button_active.css");
 @import url("./blocks/gallery/__delete-button/gallery__delete-button.css");
+@import url("./blocks/gallery/__delete-button/_visibility/gallery__delete-button_invisible.css");
 @import url("./blocks/gallery/__like-count/gallery__like-count.css");
 @import url("./blocks/popup/popup.css");
 @import url("./blocks/popup/__container/popup__container.css");

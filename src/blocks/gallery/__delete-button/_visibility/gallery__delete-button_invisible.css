@@ -1,0 +1,4 @@
+.gallery__delete-button_invisible {
+    display: none;
+    visibility: hidden;
+}

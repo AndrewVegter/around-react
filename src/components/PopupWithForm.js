@@ -11,10 +11,10 @@ export default function PopupWithForm(props) {
                 name="exit"
                 className="popup__exit-button"
                 ></button>
-                <form name={props.name} className="popup__form" onSubmit={props.handleSubmit} noValidate>
-                    <h2 className={`popup__title ${props.isFailsafe ? "popup__title_margin_low" : ""}`}>{props.title}</h2>
+                <form name={props.name} onSubmit={props.onSubmit} className="popup__form" noValidate>
+                    <h2 className="popup__title">{props.title}</h2>
                     {props.children}
-                    <button type="submit" name="Save" className="popup__button">{props.isFailsafe ? "Yes" : "Save"}</button>
+                    <button type="submit" name="Save" className="popup__button">Save</button>
                 </form>
             </div>
         </div>
